@@ -1,0 +1,18 @@
+rofi.width:        	42
+rofi.lines:         6
+rofi.font:          inconsolata 11
+rofi.scrollbar-width: 5
+rofi.separator-style: solid 
+rofi.bw:			0
+
+rofi.regex:			true
+rofi.fuzzy:			true
+
+! COLOURS
+!					bg		        fg       bg-alt          hlbg            hlfg
+rofi.color-normal:  argb:00222222,  #dfdfdf, argb:00222222,  argb:bb474b56,  #dfdfdf
+rofi.color-urgent:  argb:00222222,  #dfdfdf, argb:00222222,  argb:bb474b56,  #dfdfdf
+rofi.color-active:  argb:00222222,  #dfdfdf, argb:00222222,  argb:bb474b56,  #dfdfdf
+!					bg-bar          border   line   
+rofi.color-window:  argb:aa222222,  #474b56, #474b56 
+

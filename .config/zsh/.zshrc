@@ -13,7 +13,8 @@ zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' ignore-parents parent pwd
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' matcher-list '' 'r:|[._-]=** r:|=**' 'm:{[:lower:]}={[:upper:]}' 'l:|=* r:|=*'
-zstyle :compinstall filename '/home/life/.zshrc'
+zstyle ':completion:*:*:git:*' script $ZDOTDIR/git-completion.bash
+zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 
 autoload -Uz compinit
 compinit -d $ZDOTDIR

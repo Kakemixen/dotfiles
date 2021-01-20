@@ -1,3 +1,8 @@
+# ops
+setopt extended_history
+setopt share_history
+setopt hist_find_no_dups
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,7 +12,9 @@ fi
 
 source $ZDOTDIR/zinit/bin/zinit.zsh
 
-# The following lines were added by compinstall
+
+zinit ice blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
 
 zstyle ':completion:*' completer _expand _complete _ignored
 zstyle ':completion:*' ignore-parents parent pwd
@@ -18,16 +25,12 @@ zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 
 autoload -Uz compinit
 compinit -d $ZDOTDIR
-# End of lines added by compinstall
-
-# Lines configured by zsh-newuser-install
-HISTFILE=$ZDOTFILE
-HISTSIZE=10000
-SAVEHIST=10000
-# End of lines configured by zsh-newuser-install
-
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+zinit light zsh-users/zsh-autosuggestions
+
+zinit light zsh-users/zsh-completions
 
 #autoload -Uz promptinit
 #promptinit
@@ -37,3 +40,4 @@ source $ZDOTDIR/aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+

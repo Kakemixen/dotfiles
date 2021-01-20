@@ -3,3 +3,8 @@ typeset -U PATH path
 # path=("$HOME/.local/bin" /other/things/in/path "$path[@]")
 path=("$HOME/.local/bin" "$path[@]")
 export PATH
+
+export HISTFILE=$ZDOTDIR/histfile
+export HISTSIZE=1000000 # a large number
+export SAVEHIST=1000000
+

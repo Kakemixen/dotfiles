@@ -29,6 +29,7 @@ compinit -d $ZDOTDIR
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 zinit light zsh-users/zsh-autosuggestions
+bindkey '^[[Z' autosuggest-accept
 
 zinit light zsh-users/zsh-completions
 

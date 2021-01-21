@@ -32,6 +32,7 @@ zinit light zsh-users/zsh-autosuggestions
 bindkey '^[[Z' autosuggest-accept
 
 zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
 
 #autoload -Uz promptinit
 #promptinit

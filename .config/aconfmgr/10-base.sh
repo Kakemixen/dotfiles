@@ -81,6 +81,3 @@ AddPackage nodejs # Evented I/O for V8 javascript
 # Package management
 AddPackage python-pip # The PyPA recommended tool for installing Python packages
 AddPackage --foreign yay # Yet another yogurt. Pacman wrapper and AUR helper written in go.
-
-# Package just so that the thing doesnt un-thing itself
-AddPackage --foreign aconfmgr-git # A configuration manager for Arch Linux

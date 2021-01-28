@@ -1,0 +1,16 @@
+#[[item]]
+#file = <config-file> / <separate-config-file> | '~/.config/i3/config'
+#template = <template-name> | 'svg-circle'
+#rewrite = <whether-to-rewrite-file> | true
+#hook = <any-hooks-to-run> | 'renderborder'
+
+[[item]] # termite
+file = '~/.config/termite/config'
+template = 'termite'
+
+[[item]] # i3
+file = '~/.config/i3/config'
+template = 'i3'
+subtemplate = 'colors'
+hook = 'i3-msg "restart"'
+

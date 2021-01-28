@@ -84,3 +84,5 @@ AddPackage npm #
 AddPackage python-pip # The PyPA recommended tool for installing Python packages
 AddPackage pacutils # native dependency of aconfmgr
 AddPackage --foreign yay # Yet another yogurt. Pacman wrapper and AUR helper written in go.
+
+AddPackage --foreign flavours # A simple and easy cli to build and use base16 schemes

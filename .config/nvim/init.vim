@@ -4,14 +4,19 @@ map <space> /
 imap jj <Esc>
 
 " settings
-set number 
-set relativenumber
 set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
 set ruler
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-	set mouse=a
-endif
+"Line numbers
+set number 
+set relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set number norelativenumber
+augroup END
+
+" using the colours
+colorscheme noctu

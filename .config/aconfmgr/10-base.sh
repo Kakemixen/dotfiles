@@ -75,9 +75,12 @@ AddPackage ttf-dejavu # Font family based on the Bitstream Vera Fonts with a wid
 AddPackage ttf-inconsolata # Monospace font for pretty code listings and for the terminal
 AddPackage --foreign ttf-meslo-nerd-font-powerlevel10k # Meslo Nerd Font patched for Powerlevel10k
 
-# dependencies for plugins
+# dependencies for coc.nvim
 AddPackage nodejs # Evented I/O for V8 javascript
+AddPackage yarn # 
+AddPackage npm # 
 
 # Package management
 AddPackage python-pip # The PyPA recommended tool for installing Python packages
+AddPackage pacutils # native dependency of aconfmgr
 AddPackage --foreign yay # Yet another yogurt. Pacman wrapper and AUR helper written in go.

@@ -1,2 +1,13 @@
+#!/bin/bash
+
+# ls stuff
+alias ls='ls --color=auto'
+alias l='ls -oh'
+alias la='ls -aloha'
+
+# for the dotfiles
 alias config='git --git-dir=$HOME/.cfg --work-tree=$HOME'
+
+#for sanity
 alias vim=nvim
+

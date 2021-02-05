@@ -7,3 +7,6 @@
 [submodule "aconfmgr"]
 	path = aconfmgr
 	url = git@github.com:Kakemixen/aconfmgr.git
+[submodule ".local/share/nvim/site/pack/Completion/start/vim-lsp-cxx-highlight"]
+	path = .local/share/nvim/site/pack/Completion/start/vim-lsp-cxx-highlight
+	url = https://github.com/jackguo380/vim-lsp-cxx-highlight.git

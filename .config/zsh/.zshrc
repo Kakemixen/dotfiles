@@ -1,3 +1,5 @@
+export PATH="/home/life/aconfmgr:$PATH"
+
 # ops
 setopt extended_history
 setopt share_history

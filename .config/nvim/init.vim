@@ -2,6 +2,7 @@
 set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set ruler
 set hidden "Appearently necessary for coc.nvom
 set cmdheight=2 "More space for messages
@@ -83,3 +84,10 @@ augroup END
 
 " using the colours
 colorscheme noctu
+
+" coc extensions
+let g:coc_global_extensions = [
+    \'coc-clangd',
+    \'coc-python',
+    \'coc-sh',
+    \'coc-json']

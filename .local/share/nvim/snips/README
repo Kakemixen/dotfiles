@@ -1,0 +1,5 @@
+This directory contains copies of the snippets for UltiSnips from vim-snippets.
+https://github.com/honza/vim-snippets.git
+
+All snippets are manually copied over and custom changes have been made.
+For future updates, files need to be copied over again

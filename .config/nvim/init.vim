@@ -90,4 +90,5 @@ let g:coc_global_extensions = [
     \'coc-clangd',
     \'coc-python',
     \'coc-sh',
+    \'coc-snippets',
     \'coc-json']

@@ -29,6 +29,9 @@ endfunction
 " Use c-space to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh() 
 
+" Make <CR> auto-select the first completion item
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -67,7 +70,7 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " CocList seems usable
-nmap <leader><space> :CocList<CR>
+nmap <leader><space> :CocList --number-select<CR>
 
 "Line numbers
 set number 

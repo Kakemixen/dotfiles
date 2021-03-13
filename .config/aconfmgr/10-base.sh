@@ -1,6 +1,5 @@
 
 # Required for system / base install
-
 AddPackage amd-ucode # Microcode update image for AMD CPUs
 AddPackage autoconf # A GNU tool for automatically configuring source code
 AddPackage automake # A GNU tool for automatically creating Makefiles
@@ -38,6 +37,7 @@ AddPackage openssh # Premier connectivity tool for remote login with the SSH pro
 
 # security
 AddPackage nftables # Netfilter tables userspace tools
+AddPackage iptables-nft # Linux kernel packet control tool (using nft interface) | needed for docker
 
 # sound
 AddPackage pavucontrol # PulseAudio Volume Control
@@ -62,6 +62,9 @@ AddPackage git # the fast distributed version control system
 AddPackage htop # Interactive process viewer
 AddPackage lm_sensors # Collection of user space tools for general SMBus access and hardware monitoring
 AddPackage scrot # Simple command-line screenshot utility for X
+AddPackage xclip # Command line interface to the X11 clipboard
+AddPackage ripgrep # A search tool that combines the usability of ag with the raw speed of grep
+AddPackage docker # Pack, ship and run any application as a lightweight container
 
 # Stuff I use
 AddPackage neovim # Fork of Vim aiming to improve user experience, plugins, and GUIs
@@ -69,6 +72,7 @@ AddPackage rofi # A window switcher, application launcher and dmenu replacement
 AddPackage qutebrowser # A keyboard-driven, vim-like browser based on PyQt5
 AddPackage zsh # A very advanced and programmable command interpreter (shell) for UNIX
 AddPackage zsh-completions # Additional completion definitions for Zsh
+AddPackage okular # Document Viewer
 
 # fonts
 AddPackage ttf-dejavu # Font family based on the Bitstream Vera Fonts with a wider range of characters

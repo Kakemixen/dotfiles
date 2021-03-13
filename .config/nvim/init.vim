@@ -91,7 +91,7 @@ colorscheme noctu
 " coc extensions
 let g:coc_global_extensions = [
     \'coc-clangd',
-    \'coc-python',
+    \'coc-jedi',
     \'coc-sh',
     \'coc-snippets',
     \'coc-json']

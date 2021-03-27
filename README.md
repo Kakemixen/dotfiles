@@ -47,6 +47,10 @@ aconfmgr apply
 #### git autocompletion
 copy files from `/usr/share/git/` to ensure correct versioning
 
+```
+cp /usr/share/git/completion/git-completion.[bz]sh ~/.config/zsh
+```
+
 # Declarative managers
 Testing out different tools for declarative package management. ATM testing aconfmgr, a tool more in line storing the entire system, but dunno what I feel about that. It was chosen because it uses yay correctly for AUR packages, and it has an option to save current configuration, enabling to check for changes easily. Disable the file-watching part entirely for now.
 

@@ -1,6 +1,5 @@
 
 # Required for system / base install
-AddPackage amd-ucode # Microcode update image for AMD CPUs
 AddPackage autoconf # A GNU tool for automatically configuring source code
 AddPackage automake # A GNU tool for automatically creating Makefiles
 AddPackage base # Minimal package set to define a basic Arch Linux installation
@@ -18,7 +17,6 @@ AddPackage linux-zen-headers # Headers and scripts for building modules for the 
 AddPackage m4 # The GNU macro processor
 AddPackage man-db # A utility for reading man pages
 AddPackage man-pages # Linux man pages
-AddPackage nvidia-dkms # NVIDIA drivers - module sources
 AddPackage os-prober # Utility to detect other OSes on a set of drives
 AddPackage parted # A program for creating, destroying, resizing, checking and copying partitions
 AddPackage pkgconf # Package compiler and linker metadata toolkit
@@ -27,6 +25,22 @@ AddPackage texinfo # GNU documentation system for on-line information and printe
 AddPackage unzip # For extracting and viewing files in .zip archives
 AddPackage wget # Network utility to retrieve files from the Web
 AddPackage which # A utility to show the full path of commands
+AddPackage binutils # A set of programs to assemble and manipulate binary and object files
+AddPackage file # File type identification utility
+AddPackage findutils # GNU utilities to locate files
+AddPackage gawk # GNU version of awk
+AddPackage gcc # The GNU Compiler Collection - C and C++ frontends
+AddPackage gettext # GNU internationalization library
+AddPackage grep # A string search utility
+AddPackage groff # GNU troff text-formatting system
+AddPackage gzip # GNU compression utility
+AddPackage libtool # A generic library support script
+AddPackage make # GNU make utility to maintain groups of programs
+AddPackage pacman # A library-based package manager with dependency support
+AddPackage patch # A utility to apply patch files to original sources
+AddPackage sed # GNU stream editor
+
+
 
 
 # networking

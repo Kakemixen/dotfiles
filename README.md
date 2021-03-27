@@ -48,7 +48,8 @@ aconfmgr apply
 copy files from `/usr/share/git/` to ensure correct versioning
 
 ```
-cp /usr/share/git/completion/git-completion.[bz]sh ~/.config/zsh
+> cp /usr/share/git/completion/git-completion.bash ~/.config/zsh
+> cp /usr/share/git/completion/git-completion.zsh ~/.config/zsh/.zinit/completions/_git
 ```
 
 # Declarative managers

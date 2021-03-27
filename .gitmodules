@@ -6,7 +6,10 @@
 	url = https://github.com/ms-jpq/chadtree.git
 [submodule "aconfmgr"]
 	path = aconfmgr
-	url = git@github.com:Kakemixen/aconfmgr.git
+	url = https://github.com/Kakemixen/aconfmgr.git
 [submodule ".local/share/nvim/site/pack/Completion/start/vim-lsp-cxx-highlight"]
 	path = .local/share/nvim/site/pack/Completion/start/vim-lsp-cxx-highlight
 	url = https://github.com/jackguo380/vim-lsp-cxx-highlight.git
+[submodule ".config/zsh/zinit"]
+	path = .config/zsh/zinit
+	url = https://github.com/zdharma/zinit.git

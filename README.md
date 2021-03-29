@@ -30,7 +30,7 @@ To enable multilib repository, uncomment the [multilib] section in /etc/pacman.c
 Include = /etc/pacman.d/mirrorlist
 ```
 
-Then upgrade the system
+Then refresh package database
 
 ```
 sudo pacman -Sy

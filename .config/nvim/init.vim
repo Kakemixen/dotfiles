@@ -61,12 +61,19 @@ function! s:show_documentation()
   endif
 endfunction
 
+" vim-picker
+let g:picker_selector_executable = 'fzy'
+let g:picker_height = 20
+
+" vim-ripgrep
+let g:rg_binary = "rg"
+let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
+
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 """" Leader bindings
-" this is defualt, just here as remionder
-nmap <space> <leader> 
+let mapleader = " "
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -76,7 +83,7 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " CocList seems usable
-nmap <leader><space> :CocList --number-select<CR>
+nmap <leader><tab> :CocList --number-select<CR>
 
 " Easy fuzzy finding
 nmap <leader>pe <Plug>(PickerEdit)

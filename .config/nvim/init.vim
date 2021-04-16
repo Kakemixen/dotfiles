@@ -8,9 +8,10 @@ set hidden "Appearently necessary for coc.nvom
 set cmdheight=2 "More space for messages
 set shortmess+=c "Don't pass messages to ins-completion-menu
 set signcolumn=yes "always show diagnostics column
+set nowrap
+set wildmenu "yes
 
 " mapping
-map <space> /
 imap jj <Esc>
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -63,8 +64,9 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+"""" Leader bindings
 " this is defualt, just here as remionder
-nmap \ <leader> 
+nmap <space> <leader> 
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -75,6 +77,12 @@ nmap <leader>f  <Plug>(coc-format-selected)
 
 " CocList seems usable
 nmap <leader><space> :CocList --number-select<CR>
+
+" Easy fuzzy finding
+nmap <leader>pe <Plug>(PickerEdit)
+nmap <leader>ps <Plug>(PickerSplit)
+nmap <leader>pv <Plug>(PickerVsplit)
+nmap <leader>pb <Plug>(PickerBuffer)
 
 "Line numbers
 set number 

@@ -79,6 +79,7 @@ AddPackage scrot # Simple command-line screenshot utility for X
 AddPackage xclip # Command line interface to the X11 clipboard
 AddPackage ripgrep # A search tool that combines the usability of ag with the raw speed of grep
 AddPackage docker # Pack, ship and run any application as a lightweight container
+AddPackage fzy # A better fuzzy finder
 
 # Stuff I use
 AddPackage neovim # Fork of Vim aiming to improve user experience, plugins, and GUIs

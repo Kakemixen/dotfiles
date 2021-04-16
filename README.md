@@ -30,7 +30,7 @@ To enable multilib repository, uncomment the [multilib] section in /etc/pacman.c
 Include = /etc/pacman.d/mirrorlist
 ```
 
-Then upgrade the system
+Then refresh package database
 
 ```
 sudo pacman -Sy
@@ -47,11 +47,7 @@ aconfmgr apply
 #### git autocompletion
 copy files from `/usr/share/git/` to ensure correct versioning
 
-# Declarative managers
-Testing out different tools for declarative package management. ATM testing aconfmgr, a tool more in line storing the entire system, but dunno what I feel about that. It was chosen because it uses yay correctly for AUR packages, and it has an option to save current configuration, enabling to check for changes easily. Disable the file-watching part entirely for now.
-
-Found these:
-* https://github.com/CyberShadow/aconfmgr (currently testing)
-* https://github.com/rendaw/decpac
-* https://github.com/mastertinner/pacmanfile
-* https://www.reddit.com/r/archlinux/comments/l2vd50/introducing\_pacdef\_another\_declarative\_package/
+```
+> cp /usr/share/git/completion/git-completion.bash ~/.config/zsh
+> cp /usr/share/git/completion/git-completion.zsh ~/.config/zsh/.zinit/completions/_git
+```

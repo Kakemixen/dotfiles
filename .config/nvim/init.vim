@@ -62,6 +62,36 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" fzf integration - needed for fzf.vim
+" set rtp+=/sbin/fzf
+set rtp+=system("which fzf")
+command! Find call fzf#run(fzf#wrap({'sink': 'e', 'options': '--reverse --multi 
+                    \--preview="bat --color=always --style=numbers {}"'}))
+
+" start FZF on files if started without arguments
+function FuzzySearchIfNew()
+    if @% == ""
+        " No filename for current buffer
+        call fzf#run(fzf#wrap({'sink': 'e', 'options': '--reverse --multi 
+                    \--preview="bat --color=always --style=numbers {}"'}))
+    " elseif filereadable(@%) == 0 " File doesn't exist yet
+    " elseif line('$') == 1 && col('$') == 1 " File is empty
+    endif
+endfunction
+autocmd VimEnter * call FuzzySearchIfNew()
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 """ leader keybinds
 let mapleader = " "
 
@@ -69,11 +99,13 @@ let mapleader = " "
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  <Plug>(coc-format-selected)
 
 " CocList seems usable
 nmap <leader><tab> :CocList --number-select<CR>
+
+nmap <leader>ef :Find<CR>
 
 "Line numbers
 set number 

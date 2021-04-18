@@ -10,7 +10,6 @@ set shortmess+=c "Don't pass messages to ins-completion-menu
 set signcolumn=yes "always show diagnostics column
 
 " mapping
-map <space> /
 imap jj <Esc>
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -63,8 +62,8 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" this is defualt, just here as remionder
-nmap \ <leader> 
+""" leader keybinds
+let mapleader = " "
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -74,7 +73,7 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " CocList seems usable
-nmap <leader><space> :CocList --number-select<CR>
+nmap <leader><tab> :CocList --number-select<CR>
 
 "Line numbers
 set number 

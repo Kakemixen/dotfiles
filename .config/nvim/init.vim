@@ -65,14 +65,24 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " fzf integration - needed for fzf.vim
 " set rtp+=/sbin/fzf
 set rtp+=system("which fzf")
-command! Find call fzf#run(fzf#wrap({'sink': 'e', 'options': '--reverse --multi 
+
+command! Find call fzf#run(fzf#wrap({'options': '--reverse --multi --ansi 
                     \--preview="bat --color=always --style=numbers {}"'}))
+
+function! RgFzf(query)
+    let rg_prefix="rg --vimgrep --color=always --smart-case"
+    call fzf#run(fzf#wrap({
+            \'source': rg_prefix . " " . a:query,
+            \'options': '--disabled --ansi --multi --reverse 
+                \--bind="change:reload:' . rg_prefix . ' {q} || true"
+                \--preview="bat --color=always $(cut -d: -f1 <<<{})"'}))
+endfunction
 
 " start FZF on files if started without arguments
 function FuzzySearchIfNew()
     if @% == ""
         " No filename for current buffer
-        call fzf#run(fzf#wrap({'sink': 'e', 'options': '--reverse --multi 
+        call fzf#run(fzf#wrap({'options': '--reverse --multi 
                     \--preview="bat --color=always --style=numbers {}"'}))
     " elseif filereadable(@%) == 0 " File doesn't exist yet
     " elseif line('$') == 1 && col('$') == 1 " File is empty
@@ -105,7 +115,9 @@ nmap <leader>fo  <Plug>(coc-format-selected)
 " CocList seems usable
 nmap <leader><tab> :CocList --number-select<CR>
 
-nmap <leader>ef :Find<CR>
+nmap <silent> <leader>ef :Find<CR>
+nmap <silent> <leader>eg :call RgFzf("")<CR>
+nmap <silent> <leader>rg :Rg<CR>
 
 "Line numbers
 set number 

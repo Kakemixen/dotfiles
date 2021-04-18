@@ -13,3 +13,6 @@
 [submodule ".local/share/nvim/site/pack/Navigation/opt/chadtree"]
 	path = .local/share/nvim/site/pack/Navigation/opt/chadtree
 	url = https://github.com/ms-jpq/chadtree.git
+[submodule ".local/share/nvim/site/pack/Editing/start/quickfix-reflector.vim"]
+	path = .local/share/nvim/site/pack/Editing/start/quickfix-reflector.vim
+	url = https://github.com/stefandtw/quickfix-reflector.vim.git

@@ -72,24 +72,62 @@ let g:rg_command = g:rg_binary . ' --vimgrep --smart-case'
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-"""" Leader bindings
+" fzf integration - needed for fzf.vim
+" set rtp+=/sbin/fzf
+set rtp+=system("which fzf")
+
+command! Find call fzf#run(fzf#wrap({'options': '--reverse --multi --ansi 
+                    \--preview="bat --color=always --style=numbers {}"'}))
+
+function! RgFzf(query)
+    let rg_prefix="rg --vimgrep --color=always --smart-case"
+    call fzf#run(fzf#wrap({
+            \'source': rg_prefix . " " . a:query,
+            \'options': '--disabled --ansi --multi --reverse 
+                \--bind="change:reload:' . rg_prefix . ' {q} || true"
+                \--preview="bat --color=always $(cut -d: -f1 <<<{})"'}))
+endfunction
+
+" start FZF on files if started without arguments
+function FuzzySearchIfNew()
+    if @% == ""
+        " No filename for current buffer
+        call fzf#run(fzf#wrap({'options': '--reverse --multi 
+                    \--preview="bat --color=always --style=numbers {}"'}))
+    " elseif filereadable(@%) == 0 " File doesn't exist yet
+    " elseif line('$') == 1 && col('$') == 1 " File is empty
+    endif
+endfunction
+autocmd VimEnter * call FuzzySearchIfNew()
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+""" leader keybinds
 let mapleader = " "
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  <Plug>(coc-format-selected)
 
 " CocList seems usable
 nmap <leader><tab> :CocList --number-select<CR>
 
-" Easy fuzzy finding
-nmap <leader>pe <Plug>(PickerEdit)
-nmap <leader>ps <Plug>(PickerSplit)
-nmap <leader>pv <Plug>(PickerVsplit)
-nmap <leader>pb <Plug>(PickerBuffer)
+nmap <silent> <leader>ef :Find<CR>
+nmap <silent> <leader>eg :call RgFzf("")<CR>
+nmap <silent> <leader>rg :Rg<CR>
 
 "Line numbers
 set number 

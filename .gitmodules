@@ -10,15 +10,12 @@
 [submodule ".local/share/nvim/site/pack/Completion/start/vim-lsp-cxx-highlight"]
 	path = .local/share/nvim/site/pack/Completion/start/vim-lsp-cxx-highlight
 	url = https://github.com/jackguo380/vim-lsp-cxx-highlight.git
-[submodule ".local/share/nvim/site/pack/Navigation/start/chadtree"]
-	path = .local/share/nvim/site/pack/Navigation/start/chadtree
+[submodule ".local/share/nvim/site/pack/Navigation/opt/chadtree"]
+	path = .local/share/nvim/site/pack/Navigation/opt/chadtree
 	url = https://github.com/ms-jpq/chadtree.git
-[submodule ".local/share/nvim/site/pack/Navigation/start/vim-picker"]
-	path = .local/share/nvim/site/pack/Navigation/start/vim-picker
-	url = https://github.com/srstevenson/vim-picker.git
-[submodule ".local/share/nvim/site/pack/Searching/start/vim-ripgrep"]
-	path = .local/share/nvim/site/pack/Searching/start/vim-ripgrep
-	url = https://github.com/jremmen/vim-ripgrep.git
-[submodule ".local/share/nvim/site/pack/Searching/start/quickfix-reflector.vim"]
-	path = .local/share/nvim/site/pack/Searching/start/quickfix-reflector.vim
+[submodule ".local/share/nvim/site/pack/Editing/start/quickfix-reflector.vim"]
+	path = .local/share/nvim/site/pack/Editing/start/quickfix-reflector.vim
 	url = https://github.com/stefandtw/quickfix-reflector.vim.git
+[submodule ".local/share/nvim/site/pack/Editing/start/vim-ripgrep"]
+	path = .local/share/nvim/site/pack/Editing/start/vim-ripgrep
+	url = https://github.com/jremmen/vim-ripgrep.git

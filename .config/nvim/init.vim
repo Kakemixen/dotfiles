@@ -13,6 +13,7 @@ set wildmenu "yes
 
 " mapping
 imap jj <Esc>
+nnoremap <C-J> i<CR><Esc>l
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

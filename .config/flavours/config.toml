@@ -4,9 +4,14 @@
 #rewrite = <whether-to-rewrite-file> | true
 #hook = <any-hooks-to-run> | 'renderborder'
 
-[[item]] # termite
-file = '~/.config/termite/config'
-template = 'termite'
+#[[item]] # termite
+#file = '~/.config/termite/config'
+#template = 'termite'
+
+[[item]] # alacritty
+file = '~/.config/alacritty/alacritty.yml'
+template = 'alacritty'
+subtemplate = "default-256"
 
 [[item]] # i3
 file = '~/.config/i3/config'

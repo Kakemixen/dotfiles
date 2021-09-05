@@ -123,6 +123,8 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>fo  <Plug>(coc-format-selected)
 nmap <leader>fo  <Plug>(coc-format-selected)
 
+nmap <silent> <leader>sh :CocCommand clangd.switchSourceHeader<CR>
+
 " CocList seems usable
 nmap <leader><tab> :CocList --number-select<CR>
 

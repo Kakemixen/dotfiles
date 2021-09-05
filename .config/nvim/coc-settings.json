@@ -1,4 +1,5 @@
 {
+    "coc.preferences.semanticTokensHighlights": false,
     "clangd.semanticHighlighting": true,
     "snippets.ultisnips.directories": [
         "~/.local/share/nvim/snips"

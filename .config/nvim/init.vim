@@ -2,7 +2,8 @@
 set encoding=utf-8
 set tabstop=4
 set shiftwidth=4
-set expandtab
+" set expandtab
+set list
 set ruler
 set hidden "Appearently necessary for coc.nvom
 set cmdheight=2 "More space for messages
@@ -10,6 +11,7 @@ set shortmess+=c "Don't pass messages to ins-completion-menu
 set signcolumn=yes "always show diagnostics column
 set nowrap
 set wildmenu "yes
+set clipboard+=unnamedplus
 
 " mapping
 imap jj <Esc>
@@ -37,7 +39,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Make <CR> auto-select the first completion item
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -48,23 +49,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 " nmap <silent> gy <Plug>(coc-type-definition) "Not supported in clangd
 " nmap <silent> gi <Plug>(coc-implementation) "Not supported in clangd
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" vim-picker
-let g:picker_selector_executable = 'fzy'
-let g:picker_height = 20
 
 " vim-ripgrep
 let g:rg_binary = "rg"
@@ -80,13 +64,38 @@ set rtp+=system("which fzf")
 command! Find call fzf#run(fzf#wrap({'options': '--reverse --multi --ansi 
                     \--preview="bat --color=always --style=numbers {}"'}))
 
+" fzf on buffers
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+command! FindBuffer call fzf#run(fzf#wrap({
+\   'source':  reverse(<sid>buflist()),
+\   'options': '--reverse --ansi 
+                    \--preview="bat --color=always --style=numbers {}"',
+\   'sink':    function('<sid>bufopen'),
+\ }))
+
+
+function! s:rgopen(e)
+	echo e
+endfunction
+
 function! RgFzf(query)
     let rg_prefix="rg --vimgrep --color=always --smart-case"
     call fzf#run(fzf#wrap({
-            \'source': rg_prefix . " " . a:query,
-            \'options': '--disabled --ansi --multi --reverse 
-                \--bind="change:reload:' . rg_prefix . ' {q} || true"
-                \--preview="bat --color=always $(cut -d: -f1 <<<{})"'}))
+			\'source': rg_prefix . " " . a:query,
+			\'sink': function('<sid>rgopen'),
+			\'options': '--disabled --ansi --multi --reverse 
+				\--bind="change:reload:' . rg_prefix . ' {q} || true"
+				\--preview="bat --color=always $(cut -d: -f1 <<<{})"'}))
 endfunction
 
 " start FZF on files if started without arguments
@@ -148,6 +157,5 @@ colorscheme noctu
 let g:coc_global_extensions = [
     \'coc-clangd',
     \'coc-jedi',
-    \'coc-sh',
     \'coc-snippets',
     \'coc-json']

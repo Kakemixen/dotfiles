@@ -62,7 +62,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 set rtp+=system("which fzf")
 
 command! Find call fzf#run(fzf#wrap({'options': '--reverse --multi --ansi 
-                    \--preview="bat --color=always --style=numbers {}"'}))
+                    \--preview="fzf_preview.sh {}"'}))
 
 " fzf on buffers
 function! s:buflist()
@@ -79,24 +79,33 @@ endfunction
 command! FindBuffer call fzf#run(fzf#wrap({
 \   'source':  reverse(<sid>buflist()),
 \   'options': '--reverse --ansi 
-                    \--preview="bat --color=always --style=numbers {}"',
+                    \--preview="fzf_preview.sh {}"',
 \   'sink':    function('<sid>bufopen'),
 \ }))
 
 
 function! s:rgopen(e)
-	echo e
+	let parts = split(a:e, ":")
+	exec "edit +" . parts[1] . " " . parts[0]
 endfunction
 
 function! RgFzf(query)
-    let rg_prefix="rg --vimgrep --color=always --smart-case"
-    call fzf#run(fzf#wrap({
-			\'source': rg_prefix . " " . a:query,
-			\'sink': function('<sid>rgopen'),
+	let rg_prefix="rg --vimgrep --color=always --smart-case"
+	if empty(a:query)
+		let query=expand("<cword>")
+	else
+		let query=a:query
+	endif
+	call fzf#run(fzf#wrap({
+			\'source': rg_prefix . " " . query,
+			\'sink': function('s:rgopen'),
 			\'options': '--disabled --ansi --multi --reverse 
-				\--bind="change:reload:' . rg_prefix . ' {q} || true"
-				\--preview="bat --color=always $(cut -d: -f1 <<<{})"'}))
+				\ --query=' . query . '
+				\ --bind="change:reload:' . rg_prefix . ' {q} || true"
+				\ --preview="fzf_preview.sh {}"'}))
 endfunction
+
+command! -nargs=* -complete=file FindLine call RgFzf(<q-args>)
 
 " start FZF on files if started without arguments
 function FuzzySearchIfNew()
@@ -138,7 +147,8 @@ nmap <silent> <leader>sh :CocCommand clangd.switchSourceHeader<CR>
 nmap <leader><tab> :CocList --number-select<CR>
 
 nmap <silent> <leader>ef :Find<CR>
-nmap <silent> <leader>eg :call RgFzf("")<CR>
+nmap <silent> <leader>eb :FindBuffer<CR>
+nmap <silent> <leader>eg :FindLine<CR>
 nmap <silent> <leader>rg :Rg<CR>
 
 "Line numbers

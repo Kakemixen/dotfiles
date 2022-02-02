@@ -50,4 +50,20 @@ source $ZDOTDIR/fzf_setup
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 
+# WINDOW TITLE
+autoload -Uz add-zsh-hook
+
+function xterm_title_precmd () {
+	print -Pn -- '\e]2;%m %~\a'
+}
+
+function xterm_title_preexec () {
+	print -Pn -- '\e]2;%m:%~ ' && print -n -- "${(q)1}\a"
+}
+
+if [[ "$TERM" == (Eterm*|alacritty*|aterm*|gnome*|konsole*|kterm*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
+	add-zsh-hook -Uz precmd xterm_title_precmd
+	add-zsh-hook -Uz preexec xterm_title_preexec
+fi
+
 eval "$(direnv hook zsh)"

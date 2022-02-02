@@ -9,18 +9,22 @@ input=$1
 
 nf=$(echo $input | awk -F : '{ print NF }')
 
-filename=$(echo $input | awk -F : '{print $1}')
-
 
 # know $nf >= 1 - 0 would be no input, so if@3 should catch that
 if (( $nf == 1 )); then
-	bat --style numbers --color=always $filename
+	nf=$(echo $input | awk -F '"' '{ print NF }')
+	if (( $nf == 1 )); then
+		filename=$(echo $input | awk -F : '{print $1}')
+		bat --style numbers --color=always $filename
+		exit
+	else
+		filename=$(echo $input | awk -F '"' '{ print $2 }')
+		bat --style numbers --color=always $filename
+		exit
+	fi
 fi
 
-# know $nf >= 2
-echo $filename
-echo $nf
-
+filename=$(echo $input | awk -F : '{print $1}')
 linenum=$(echo $input | awk -F : '{print $2}')
 viewtop=$(($linenum - 10))
 if (( "$viewtop" < 0 )); then

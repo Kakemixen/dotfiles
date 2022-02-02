@@ -15,11 +15,9 @@ set clipboard+=unnamedplus
 
 " mapping
 imap jj <Esc>
-nnoremap <C-J> i<CR><Esc>l
+nnoremap <C-J> i<CR><Esc>
 
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -78,8 +76,8 @@ endfunction
 
 command! FindBuffer call fzf#run(fzf#wrap({
 \   'source':  reverse(<sid>buflist()),
-\   'options': '--reverse --ansi 
-                    \--preview="fzf_preview.sh {}"',
+\   'options': '--reverse --ansi
+                    \ --preview="fzf_preview.sh {}"',
 \   'sink':    function('<sid>bufopen'),
 \ }))
 
@@ -148,7 +146,7 @@ nmap <leader><tab> :CocList --number-select<CR>
 
 nmap <silent> <leader>ef :Find<CR>
 nmap <silent> <leader>eb :FindBuffer<CR>
-nmap <silent> <leader>eg :FindLine<CR>
+nmap <silent> <leader>eg :FindLine ""<CR>
 nmap <silent> <leader>rg :Rg<CR>
 
 "Line numbers

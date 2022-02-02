@@ -64,7 +64,7 @@ AddPackage xorg-xinit # X.Org initialisation program
 AddPackage --foreign ly # TUI display manager
 
 # terminals
-AddPackage termite # A simple VTE-based terminal
+AddPackage alacritty # A cross-platform, GPU-accelerated terminal emulator
 AddPackage xterm # X Terminal Emulator
 AddPackage guake # Drop-down terminal for GNOME
 

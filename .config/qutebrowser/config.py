@@ -99,6 +99,8 @@ c.colors.webpage.bg = 'white'
 # Type: Bool
 c.content.print_element_backgrounds = True
 
+c.content.tls.certificate_errors = "block"
+
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font

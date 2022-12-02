@@ -61,6 +61,7 @@ AddPackage pulseaudio # A featureful, general-purpose sound server
 AddPackage i3-gaps # A fork of i3wm tiling window manager with more features, including gaps
 AddPackage xorg-server # Xorg X server
 AddPackage xorg-xinit # X.Org initialisation program
+AddPackage --foreign i3lock-color # The world's most popular non-default computer lockscreen.
 AddPackage --foreign ly # TUI display manager
 
 # terminals

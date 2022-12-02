@@ -35,6 +35,9 @@ bindsym $mod+d exec rofi -show window
 # kill focused window
 bindsym $mod+Shift+q kill
 
+#lock
+bindsym $mod+z exec i3lock_pixelated.sh
+
 # brightness
 #bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
 #bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
